@@ -1,0 +1,328 @@
+@import './reset.min.less';
+@import './swiper.min.less';
+@import './animate.min.less';
+@import './makisu.min.less';
+@import (reference) './common.less';
+
+@img:'../images';
+@font-face {
+  font-family: 'iconfont';  /* project id 1411481 */
+  src: url('http://at.alicdn.com/t/font_1411481_0rtn8gjh6zq.eot');
+  src: url('http://at.alicdn.com/t/font_1411481_0rtn8gjh6zq.eot?#iefix') format('embedded-opentype'),
+  url('http://at.alicdn.com/t/font_1411481_0rtn8gjh6zq.woff2') format('woff2'),
+  url('http://at.alicdn.com/t/font_1411481_0rtn8gjh6zq.woff') format('woff'),
+  url('http://at.alicdn.com/t/font_1411481_0rtn8gjh6zq.ttf') format('truetype'),
+  url('http://at.alicdn.com/t/font_1411481_0rtn8gjh6zq.svg#iconfont') format('svg');
+}
+
+.ld-fl{float: left;}
+.ld-fr{float: right;}
+.flex{display: flex;align-content:center;}
+img{max-width: 100%}
+
+@keyframes shake {
+	0%,to {
+	-webkit-transform:translateZ(0);
+	transform:translateZ(0);
+	opacity: 1;
+}
+10%,30%,50%,70%,90% {
+	-webkit-transform:translate3d(-10px,0,0);
+	transform:translate3d(-10px,0,0)
+}
+20%,40%,60%,80% {
+	-webkit-transform:translate3d(10px,0,0);
+	transform:translate3d(10px,0,0)
+}
+to {
+	opacity: 1;
+}
+}
+.shake {
+	-webkit-animation-name:shake;
+	animation-name:shake
+}
+@keyframes sacle{
+	0%,to{
+		-webkit-transform:scale(1.5);
+		transform:scale(1.2)
+	}
+	100%{
+		-webkit-transform:scale(1);
+		transform:scale(1)
+	}
+}
+@keyframes opacitys{
+	0%,to{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+
+
+html {
+	//=>规定在750PX的设计稿中:1REM=100PX
+	font-size: 100px;
+}
+
+html,
+body {
+	height: 100%;
+	overflow: hidden;
+	background: #E4E4E4;
+}
+
+.container {
+	margin: 0 auto;
+	max-width: 750px;
+	height: 100%;
+}
+
+/*swiper*/
+.swiper-container {
+	width: 100%;
+	height: 100%;
+}
+.swiper-slide {
+	font-size: 16px;
+	background: #fff;
+}
+.page1,.page2,.page3,.page4,.page5,.page6{
+	background:#52cab3 url("@{img}/page.webp") no-repeat center -45px;
+	background-size: cover;
+}
+.page1{
+	background:#52cab3 url("@{img}/page1.webp") no-repeat center -75px	
+}
+.element-box-contents{font-family: fangzheng_dhtjt;}
+.page1-content{
+	text-align: center;
+	width: 2rem;
+	height:2rem;
+	margin:0 auto;
+	top:.5rem;
+	position: relative;
+	overflow: hidden;
+
+	/*线*/
+	.xian{width:1.4rem;margin:.05rem auto;height:.03rem;background-color: #000;}
+	.resume{font-size:.14rem}
+	.blog{font-size:.4rem;background:url("@{img}/jianli.webp") no-repeat center center;text-indent: -1000px}
+	.job-name{font-size: .14rem;margin-top:.1rem}
+	.blog-name{
+		margin-top:.1rem;
+		.iconfont{font-size:.2rem;margin-right:.08rem}
+	}
+}
+/*个人介绍页*/
+.page2{
+	.LT-img,.BR-img{
+		position:absolute;
+	}
+	
+	.head{
+		width: 1.3rem;
+		text-align: center;
+		position: relative;
+		margin:1rem auto .3rem;
+		background-color:#5aca23;
+		padding:.15rem;
+		.LT-img{
+			display: inline-block;
+			background: url("@{img}/head-left.webp") no-repeat top left;
+			width:1.2rem;
+			height:.76rem;
+			top:-.1rem;
+			left:-.1rem;
+		}
+		.BR-img{
+			display: inline-block;
+			background: url("@{img}/head-right.webp") no-repeat right bottom;
+			width:1.2rem;
+			height:.76rem;
+			bottom:-.1rem;
+			right:-.1rem;
+		}
+	}
+
+}
+h3.bitTitle{font-size:.32rem;padding:.2rem 0 .1rem;text-align: center;}
+/*作品展示*/
+.page3{
+	text-align: center;
+	.zuopin-more a{color:inherit;}
+	.imgstyle{background:rgba(0,0,0,0.2);padding:.04rem;}
+	.img-box{
+		padding:.1rem;
+		font-size: 0;
+		text-align: center;
+		.item{padding-top:.06rem;flex: 1}
+	}
+}
+/*page4工作经历*/
+.page4{
+	opacity: 0;
+	.job-comp{	padding:.1rem;}
+	.comp-item{
+		position: relative;
+		border:rgba(0, 0, 0, .1) dashed 1px;
+		padding:.1rem;
+		padding-left:24%;
+		box-shadow: 5px 7px 10px rgba(0, 0, 0, 0.2);
+		margin-top:.2rem;
+	}
+	.comp-item:before{
+		content: "";
+		display: block;
+		position: absolute;
+		width:16%;
+		background:rgb(41, 163, 143);
+		top:.1rem;
+		bottom:.1rem;
+		left:.1rem;
+	}
+}
+
+
+/*动画前设置的样式*/
+h3.bitTitle,.zuopin-more{
+	position: relative;
+	left:-3rem;
+}
+//动画前的内容
+.page1{
+	.element-box-contents{opacity: 0;}
+	.elment1,.elment5{position: relative;z-index: 10;}
+	.elment1{top:1rem}
+	.elment5{top:-1rem}
+}
+.page2{
+	opacity: 0;
+	perspective: 2000px;
+}
+
+/*页面4角花*/
+.page-huaLT,.page-huaRT,.page-huaBL,.page-huaBR{
+	opacity: 0;
+	position: absolute;
+	z-index: 1000;
+	width: 236px;
+	height: 231px;
+	text-indent: -9999px;
+}
+.page-huaLT{
+	background: url(http://127.0.0.1:5501/images/pageLT.webp) no-repeat -100px -25px;
+}
+.page-huaRT{
+	background: url(http://127.0.0.1:5501/images/pageRT.webp) no-repeat 100px -25px;
+	top:0;
+	right:0;
+}
+.page-huaBL{
+	background: url(http://127.0.0.1:5501/images/pageBL.webp) no-repeat 0px 0px;
+	bottom:0;
+	left:-51px;
+}
+.page-huaBR{
+	background: url(http://127.0.0.1:5501/images/pageBR.webp) no-repeat 0px 0px;
+	bottom:0;
+	right:-70px;
+}
+/*动画进入*/
+
+.swiper-slide-active{
+	opacity: 1;
+	h3.bitTitle{
+		left:0;
+		animation: 1s ease 1s 1 normal both running fadeInLeft;
+	}
+	.element-box1{animation: 1s ease 0.4s 1 normal both running flipInY;}
+	.element-box2{animation: 1s ease 0.5s 1 normal both running flipInY;}
+	.element-box3{animation: 1s ease 0.4s 1 normal both running flipInY;}
+	.element-box4{animation: 1s ease 0.3s 1 normal both running flipInY;}
+	.element-box5{animation: 1s ease 0.2s 1 normal both running flipInY;}
+	.element-box6{animation: 1s ease 0.1s 1 normal both running flipInY;}
+	.element-box7{animation: 1s ease 0.2s 1 normal both running flipInY;}
+	.element-box8{animation: 1s ease 0.3s 1 normal both running flipInY;}
+	.element-box9{animation: 1s ease 0.5s 1 normal both running flipInY;}
+}
+//page1
+.swiper-slide-active.page1{
+	animation: sacle .5s both;
+	.element-box-contents{opacity: 1;}
+	.elment1{
+		top:0rem;
+		animation: 1s ease 1.1s 1 normal both running fadeInUpBig;
+	}
+	.elment2{
+		
+		animation: 1s ease 2s 1 normal both running zoomIn;
+	}
+	.elment3{
+		animation: 1s ease 0.9s 1 normal both running zoomIn;
+	}
+	.elment4{
+		animation: 1s ease 1.5s 1 normal both running zoomIn	
+	}
+	.elment5{
+		top:0;
+		animation: 1s ease 1.2s 1 normal both running fadeInDownBig
+	}
+	.elment6{
+		animation: 1s ease 2s 1 normal both running zoomIn
+	}
+	.elment7{
+		animation: 1s ease 1.8s 1 normal both running fadeInRight
+	}
+}
+.swiper-slide-active.page2{
+	opacity: 1;
+	.head{
+		animation: 1s ease 1s 1 normal both running flipInX;
+		img{animation: 2.5s ease 1s 1 normal both running zoomIn}
+	}
+	.LT-img{
+		animation: 1s ease 2.8s 1 normal both running rollIn;}
+	.BR-img{
+			animation: 1s ease 2.9s 1 normal both running rotateInDownRight
+		}
+	.baseInfo{
+		animation: 1s ease 3s 1 normal both running zoomIn
+	}
+}
+
+//page3 作品展示
+.swiper-slide-active.page3{
+	.zuopin-more{
+		left:0;
+		animation: 1s ease 1.5s 1 normal both running fadeInLeft
+	}
+	.imgstyle{
+		animation:1s ease 1.8s 1 normal both running flipInY;
+	}
+	
+}
+/*page4动画*/
+.swiper-slide-active.page4{
+	opacity: 1;
+	.job-comp{animation: 1s ease 2.5s 1 normal both running fadeInLeft}
+	dt{animation: 1s ease 3.5s 1 normal both running fadeInRight}
+	dd{animation: 1s ease 4s 1 normal both running zoomIn}
+}
+
+
+/*page6*/
+.swiper-slide-active.page6{
+	.comp_image{animation: 1s ease 1s 1 normal both running zoomIn;}
+}
+
+
+/*
+animation：
+zommIn //从没有放大出现
+fadeInUpBig 从上滑动下来
+
+animation:1s ease 0.9s 1 normal both running zoomIn;
+*/
