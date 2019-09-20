@@ -15,7 +15,7 @@ $(function(){
     direction: 'vertical',
     loop:true,
     
-    // initialSlide:5, //设置默认页
+    initialSlide:5, //设置默认页
     on: {
       transitionEnd: function(){
         if (this.activeIndex==2){
